@@ -747,8 +747,8 @@ var util = {
     }
     return dest;
   },
-  pack: BinaryPack.pack,
-  unpack: BinaryPack.unpack,
+  pack: exports.BinaryPack.pack,
+  unpack: exports.BinaryPack.unpack,
 
   log: function () {
     if (util.debug) {
@@ -1737,7 +1737,7 @@ ConnectionManager.prototype.initialize = function(id, socket) {
 /** Start a PC. */
 ConnectionManager.prototype._startPeerConnection = function() {
   util.log('Creating RTCPeerConnection');
-  this.pc = new RTCPeerConnection(this._options.config, { optional: [ { RtpDataChannels: true } ]});
+  this.pc = new exports.RTCPeerConnection(this._options.config, { optional: [ { RtpDataChannels: true } ]});
 };
 
 /** Add DataChannels to all queued DataConnections. */

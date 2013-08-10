@@ -1,10 +1,6 @@
 {
-  "name": "peerjs",
-  "version": "0.2.8",
+  "name": "peerjs-browserify-unofficial",
+  "version": "0.2.8-alpha2",
   "description": "PeerJS client library",
-  "devDependencies": {
-    "uglify-js": "~1.3.4",
-    "mocha": "*",
-    "expect.js": "*"
-  }
+  "main": "peer.js"
 }
