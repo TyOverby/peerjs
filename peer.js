@@ -841,15 +841,16 @@ var util = {
     return location.protocol === 'https:';
   }
 };
+// Export util to allow debugging.
+exports.util = util;
+
 /**
  * Reliable transfer for Chrome Canary DataChannel impl.
  * Author: @michellebu
  */
-function Reliable(dc, debug) {
+function Reliable(dc) {
   if (!(this instanceof Reliable)) return new Reliable(dc);
   this._dc = dc;
-
-  util.debug = debug;
 
   // Messages sent/received so far.
   // id: { ack: n, chunks: [...] }
@@ -1174,7 +1175,6 @@ function Peer(id, options) {
     config: { 'iceServers': [{ 'url': 'stun:stun.l.google.com:19302' }] }
   }, options);
   this._options = options;
-  util.debug = options.debug;
 
   // First check if browser can use PeerConnection/DataChannels.
   // TODO: when media is supported, lower browser version limit and move DC
